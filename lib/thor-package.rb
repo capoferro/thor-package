@@ -44,8 +44,12 @@ module ThorPackage
       end
 
       def current_version
+        require "thor/scmversion"
         invoke "version:current"
         File.read(File.join(source_root, "VERSION")).chomp
+      rescue
+        warn "This project is not versioned via thor-scmversion"
+        "UNVERSIONED"
       end
 
       def application_name
