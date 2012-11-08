@@ -1,3 +1,4 @@
+require 'thor'
 require 'thor/actions'
 
 module ThorPackage
